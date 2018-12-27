@@ -80,8 +80,8 @@ MYSQL_CONTAINER="$(mysql_container_exists ${PROJECT_ROOT})"
 #TODO: fix mariadb export db dump
 echo "The mysql container is: ${MYSQL_CONTAINER}"
 echo "mysqldump -h${DB_HOST} -u${DB_USER} -p${DB_PASSWORD} ${DB_NAME} > ${FILENAME}"
-docker exec -it "${MYSQL_CONTAINER}" bash -c "mysqldump -h${DB_HOST} -u${DB_USER} -p${DB_PASSWORD} ${DB_NAME} > /var/lib/mysql/${FILENAME}"
+docker exec -it "${MYSQL_CONTAINER}" bash -c "mysqldump -h${DB_HOST} -u${DB_USER} -p${DB_PASSWORD} ${DB_NAME} > ${FILENAME}"
 
-echo "The database dump was exported to: ${PROJECT_ROOT}/${FILENAME}"
+echo "The database dump was exported to: /${FILENAME}"
 
 cd "${WORKING_DIR}"
